@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<head>
+
+</head>
+<body>
+    <h1>from forum.php </h1>
+    <div id="jsonApiOutput">
+
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            fetch('forum.php')
+            .then(response => {
+                return response.json()
+            })
+            .then(data => {
+
+                console.log(data);
+
+                dataSubject = data.map((dat) => dat.subject)
+
+                document.querySelector('#jsonApiOutput').innerHTML = dataSubject;
+            })
+        });
+
+
+    </script>
+</body>
+</html>

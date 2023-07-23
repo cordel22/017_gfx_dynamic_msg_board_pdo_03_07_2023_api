@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<head>
+
+</head>
+<body>
+    <div id="jsonApiOutput">
+
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            fetch('forum.php')
+            .then(response => {
+                return response.json()
+            })
+            .then(data => {
+                console.log(data);
+            })
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+
+
+<!DOCTYPE html>
+<head>
+
+</head>
+<body>
+
+  <!--  semka sa asi dostanes get volanim z forumu... tak si odtal vyber get hodnotu a vloz ju do api volania -->
+    <h1>from forum.php </h1>
+    <div id="jsonApiOutput">
+
+    </div>
+    <script>
+      <!-- -->
+        document.addEventListener('DOMContentLoaded', function() {
+            fetch('read.php?tid=2')
+            .then(response => {
+                return response.json()
+            })
+            .then(data => {
+
+                console.log(data);
+
+                dataSubject = data.map((dat) => dat.subject)
+
+                document.querySelector('#jsonApiOutput').innerHTML = dataSubject;
+            })
+        });
+
+
+    </script>
+
+    <?php
+//  TODO Forma Nefunguje!!!
+//  Show the form to post a message:
+include('includes/post_form.php');
+
+
+    ?>
+    <!--    page 567    forma lebo ten php bazmeg ma aj tak dve verzie  -->
+    <form action="post.php" method="post" accept-charset="utf-8">';
+        <p>Post a reply</p>
+        <!--  TODO, zdynamizuj tid v dalsom riadku!!! zatal mas $tid=2  -->
+        <input name="tid" type="hidden" value="2" />
+        <p>
+          <em>bodaaay</em>: 
+          <textarea name="body" rows="10" cols="60">
+            <!--  make it sticky with body  p.570   -->
+          </textarea>
+          <input name="submit" type="submit" value="submit" />
+        </form>';
+
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
